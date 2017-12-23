@@ -1,0 +1,55 @@
+<!DOCTYPE>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Horror Hangman</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="./assets/javascript/game.js"></script>
+    <script src="./assets/css/reset.css"></script>
+    <script src="./assets/css/style.css"></script>
+</head>
+
+<body>
+    <!-- pseudo code
+    - computer presents a empty word for user to guess (from 7 options)
+    - user guesses letter
+    - if letter is correct it appears in the empty space of the word
+    - if letter is incorrect then user loses a guess
+    - display letters already guessed
+    - user has 10 guesses before they lose
+    - if they win an image appears in left column
+     -->
+     
+<div class="container">
+        <!-- game title text -->
+        <div class="row" style="text-align:center;">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <h1>Horror</h1>
+                <h2>Hangman</h2>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    
+        <!--  game content boxes-->
+        <div class="row">
+                <div class="col-md-2"></div>
+            <div class="col-md-3" style="background-color:green; height:400px;">
+                <h3>empty space</h3>
+            </div>
+            <!--  -->
+            <div class="col-md-5" style="background-color:blue; height:400px;">
+                <h3>PRESS ANY KEY TO GET STARTED!</h3>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    
+    
+    
+    </div>
+</body>
+</html>
