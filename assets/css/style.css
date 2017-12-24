@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+}
+
+#banner {
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+#horror {
+    color: red;
+    font-size: 60px;
+}
+
+#hangman {
+    color: white;
+    font-size: 30px;
+}
+
+p {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+#horror-image {
+    width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#image-box {
+   background-color: black; 
+    height: 400px; 
+    border:outset red;
+}
+#game-box {
+    background-color: black; 
+    height: 400px; 
+    border: outset red;
+    padding-top: 30px;
+}
