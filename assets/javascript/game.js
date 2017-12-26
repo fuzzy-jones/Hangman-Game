@@ -7,7 +7,10 @@ var wordList = [
     "hannibal lecter",
     "pennywise",
     "jason voorhees",
-    "candyman"
+    "candyman",
+    "norman bates",
+    "michael myers",
+    "pumpkinhead"
 ]
 
 // letters user can guess
