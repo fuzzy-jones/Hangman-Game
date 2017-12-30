@@ -20,7 +20,7 @@ var wordList = [
     "candyman",
     "norman bates",
     "michael myers",
-    "pumpkinhead"
+    "xenomorph"
 ]
 
 // letters user can guess
@@ -47,12 +47,12 @@ function underscore() {
     }
     return currentWord;
 }
+    // display underscore function in the game html
+    // document.getElementById("current-word").innerHTML = underscore();
 
-document.getElementById("current-word").innerHTML = underscore();
-
-console.log(underscore());
-
-console.log(randomWord);
+    // console log actions taking place
+    console.log(underscore());
+    console.log(randomWord);
 
 
 
@@ -61,18 +61,12 @@ document.onkeyup = function(event) {
 
     // key event made to lowercase
     var userGuess = (event.key).toLowerCase();
-    // push letters that were guess to the html
+    // push letters that were guessed to the game html
     lettersGuessed.push(userGuess);
-    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+    // document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 
     console.log(userGuess);
 }
 
 
 
-// document.onkeyup = function(event){
-//     for (var i = 0; i < wordList.length; i++) {
-//         currentWord [i] = "_";
-//     }
-//     console.log(computerGuess);
-// }
