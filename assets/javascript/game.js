@@ -4,8 +4,11 @@
 // create functions to be called on in the game
     // underscores
 // create a key up function for the user letter choices
-// push the results to the html
+// make if else statement for game
+// make a win or lose function
+// make images appear for appropriate win/horror villain
 // reset after win/lose
+// push the results to the html
 
 
 
@@ -35,25 +38,27 @@ var lettersGuessed = [];
 
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
-var selectedWord = randomWord;
 
 
 // game functions
 
 // turn random word into underscores
 function underscore() {
-    for (var i = 0; i < selectedWord.length; i++) {
+    for (var i = 0; i < randomWord.length; i++) {
         currentWord.push("_");
     }
     return currentWord;
 }
-    // display underscore function in the game html
-    // document.getElementById("current-word").innerHTML = underscore();
 
-    // console log actions taking place
-    console.log(underscore());
-    console.log(randomWord);
+// make underscore function equal to word computer selected
+underscore() === currentWord;
 
+// display underscore function in the game html
+document.getElementById("current-word").innerHTML = currentWord.join(" ");
+
+// console log actions taking place
+console.log(randomWord);
+console.log(currentWord);
 
 
 // user guesses based on key inputs
@@ -63,8 +68,25 @@ document.onkeyup = function(event) {
     var userGuess = (event.key).toLowerCase();
     // push letters that were guessed to the game html
     lettersGuessed.push(userGuess);
-    // document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+    document.getElementById("letters-guessed").innerHTML = lettersGuessed;
 
+    // if letter guessed is part of generated random word
+    if (randomWord.indexOf(userGuess) > -1) {
+        console.log(true);
+        for (var i = 0; i < randomWord.length; i++) {
+            if (randomWord[i] === userGuess) {
+                
+            }
+        }
+    }
+    else {
+        guessLeft--;
+        document.getElementById("guesses-left").innerHTML = guessLeft;
+        console.log(guessLeft);
+    }
+
+    
+    
     console.log(userGuess);
 }
 
