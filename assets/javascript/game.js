@@ -31,7 +31,7 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 
 // set variables for the game
 var wins = 0;
-var loses = 0;
+var losses = 0;
 var currentWord = [];
 var guessLeft = 13;
 var lettersGuessed = [];
@@ -50,16 +50,42 @@ function underscore() {
     return currentWord;
 }
 
-// make underscore function equal to word computer selected
-underscore() === currentWord;
+// reset game to be put in user won or lose functions
+function reset() {
+    currentWord = [];
+    guessLeft = 13;
+    lettersGuessed = [];
+    randomWord = wordList[Math.floor(Math.random() * wordList.length)];
+    // new word with underscores
+    underscore();
+    document.getElementById("current-word").innerHTML = currentWord.join(" ");
+}
 
-// display underscore function in the game html
+// if user wins
+function userWon() {
+
+}
+
+// if user losses
+function userLost() {
+
+    if (guessLeft === 0) {
+        reset();
+        losses++;
+        document.getElementById("losses").innerHTML = losses;
+        
+    }
+    
+}
+
+
+// Game
+
+// underscores created for random word
+underscore();
+
+// display underscore function in start game html
 document.getElementById("current-word").innerHTML = currentWord.join(" ");
-
-// console log actions taking place
-console.log(randomWord);
-console.log(currentWord);
-
 
 // user guesses based on key inputs
 document.onkeyup = function(event) {
@@ -75,7 +101,9 @@ document.onkeyup = function(event) {
         console.log(true);
         for (var i = 0; i < randomWord.length; i++) {
             if (randomWord[i] === userGuess) {
-                
+                // i have no idea why this code below works, but a google search said so
+                currentWord[i] = userGuess;
+                console.log(currentWord);
             }
         }
     }
@@ -85,10 +113,16 @@ document.onkeyup = function(event) {
         console.log(guessLeft);
     }
 
-    
-    
+    userLost();
+
+    // console log actions taking place
+    console.log(randomWord);
+    console.log(currentWord);
     console.log(userGuess);
 }
+
+
+
 
 
 
