@@ -11,6 +11,7 @@
 // push the results to the html
 
 
+// global variables
 
 // words to be selected randomly by computers
 var wordList = [
@@ -35,7 +36,7 @@ var losses = 0;
 var currentWord = [];
 var guessLeft = 13;
 var lettersGuessed = [];
-
+// random word generated from word list
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
 
@@ -50,7 +51,7 @@ function underscore() {
     return currentWord;
 }
 
-// reset game to be put in user won or lose functions
+// game reset function to be put in user won or lose functions
 function reset() {
     currentWord = [];
     guessLeft = 13;
@@ -62,20 +63,26 @@ function reset() {
 }
 
 // if user wins
-function userWon() {
-
-}
+// function userWon() {
+//     if () {
+//         reset();
+//         wins++;
+//         console.log(wins);
+//         // display wins in html
+//         document.getElementById("wins").innerHTML = wins;
+//     }
+// }
 
 // if user losses
 function userLost() {
-
+    // if guesses reach 0, game resets and losses increase by 1
     if (guessLeft === 0) {
         reset();
         losses++;
+        console.log(losses);
+        // display loses in html
         document.getElementById("losses").innerHTML = losses;
-        
-    }
-    
+    }   
 }
 
 
@@ -100,19 +107,30 @@ document.onkeyup = function(event) {
     if (randomWord.indexOf(userGuess) > -1) {
         console.log(true);
         for (var i = 0; i < randomWord.length; i++) {
+            // user guess is run through random word letters to see if equal to any letter
             if (randomWord[i] === userGuess) {
-                // i have no idea why this code below works, but a google search said so
+                // current random word will replace each correct guess with the user guess
                 currentWord[i] = userGuess;
                 console.log(currentWord);
+                // displays correct guesses in the current word html (replaces underscores)
+                document.getElementById("current-word").innerHTML = currentWord.join(" ");
             }
         }
     }
+
+    // if letter is an incorrect guess, guesses left is subtracted by 1
     else {
+        console.log(false);
         guessLeft--;
+        // updated guesses left in html
         document.getElementById("guesses-left").innerHTML = guessLeft;
         console.log(guessLeft);
     }
 
+    // user won function is called if user guess all letters correctly
+    // userWon();
+
+    // user lost function is called if guesses left reaches 0
     userLost();
 
     // console log actions taking place
@@ -120,9 +138,5 @@ document.onkeyup = function(event) {
     console.log(currentWord);
     console.log(userGuess);
 }
-
-
-
-
 
 
