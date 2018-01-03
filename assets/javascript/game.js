@@ -39,6 +39,8 @@ var lettersGuessed = [];
 // random word generated from word list
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
+var rightWord = [];
+
 
 
 // game functions
@@ -63,15 +65,17 @@ function reset() {
 }
 
 // if user wins
-// function userWon() {
-//     if () {
-//         reset();
-//         wins++;
-//         console.log(wins);
-//         // display wins in html
-//         document.getElementById("wins").innerHTML = wins;
-//     }
-// }
+function userWon() {
+    // I have no idea why this worked but google said so,
+    // and I spent way too many hours trying to make it work
+    if (currentWord.indexOf("_") === -1 ) {
+        reset();
+        wins++;
+        console.log(wins);
+        // display wins in html
+        document.getElementById("wins").innerHTML = wins;
+    }
+}
 
 // if user losses
 function userLost() {
@@ -128,7 +132,7 @@ document.onkeyup = function(event) {
     }
 
     // user won function is called if user guess all letters correctly
-    // userWon();
+    userWon();
 
     // user lost function is called if guesses left reaches 0
     userLost();
