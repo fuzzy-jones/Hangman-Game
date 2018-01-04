@@ -29,7 +29,8 @@ p {
     margin-right: auto;
     max-height: 95%;
     max-width: 95%;
-    padding: 20px 0px 10px 0px;
+    padding: 30px 0px 10px 0px;
+    max-height: 400px;
 }
 
 #image-box {

@@ -15,15 +15,15 @@
 
 // words to be selected randomly by computers
 var wordList = [
-    "freddy krueger",
+    "freddykrueger",
     "pinhead",
     "leatherface",
-    "hannibal lecter",
+    "hanniballecter",
     "pennywise",
-    "jason voorhees",
+    "jasonvoorhees",
     "candyman",
-    "norman bates",
-    "michael myers",
+    "normanbates",
+    "michaelmyers",
     "xenomorph"
 ]
 
@@ -34,13 +34,12 @@ var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", 
 var wins = 0;
 var losses = 0;
 var currentWord = [];
-var guessLeft = 13;
+var guessLeft = 10;
 var lettersGuessed = [];
 // random word generated from word list
 var randomWord = wordList[Math.floor(Math.random() * wordList.length)];
 
 var rightWord = [];
-
 
 
 // game functions
@@ -56,7 +55,7 @@ function underscore() {
 // game reset function to be put in user won or lose functions
 function reset() {
     currentWord = [];
-    guessLeft = 13;
+    guessLeft = 10;
     lettersGuessed = [];
     randomWord = wordList[Math.floor(Math.random() * wordList.length)];
     // new word with underscores
@@ -103,11 +102,19 @@ document.onkeyup = function(event) {
 
     // key event made to lowercase
     var userGuess = (event.key).toLowerCase();
+
+    // make only alphabet letters from array able to be selected or else get an alert
+    if (letters.indexOf(event.key) > -1) {
     // push letters that were guessed to the game html
     lettersGuessed.push(userGuess);
     document.getElementById("letters-guessed").innerHTML = lettersGuessed;
+    } else {
+        // don't lose a guess and alert the user of an invalid key guess
+        guessLeft++;
+        alert("Invalid Key... Any guess other than an alphabet letter is horrifying!")
+    }
 
-    // if letter guessed is part of generated random word
+    // if letter guessed is part of generated random word and displayed correct guess in html
     if (randomWord.indexOf(userGuess) > -1) {
         console.log(true);
         for (var i = 0; i < randomWord.length; i++) {
